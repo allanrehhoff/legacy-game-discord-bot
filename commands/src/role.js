@@ -49,9 +49,10 @@ module.exports = {
 					} else {
 						msg.member.roles.add(addRole);
 					}
+
+					msg.author.send("Ding Ding! Role added... PROCESS COMPLETED");
 				}
 
-				msg.author.send("Ding Ding! Role added... PROCESS COMPLETED");
 				msg.delete();
 			} catch(error) {
 				console.log("[ERR] " + error.message);
