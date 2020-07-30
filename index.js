@@ -1,3 +1,10 @@
-const ENV = process.env;
+const Config = process.env;
+const Discord = require("discord.js");
 
-console.log(ENV.firstkey);
+let bot = new Discord.Client;
+
+bot.login(Config.BOT_TOKEN);
+
+bot.on("ready" , function() {
+	console.log("[BOT] Logged in as: " + bot.user.tag);
+});
