@@ -1,0 +1,23 @@
+{
+  "name": "kermit-meme-bot",
+  "version": "1.0.0",
+  "description": "A Discord meme bot named Kermit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allanrehhoff/atr-discord-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Allan Rehhoff",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/allanrehhoff/atr-discord-bot/issues"
+  },
+  "homepage": "https://github.com/allanrehhoff/atr-discord-bot#readme"
+}
