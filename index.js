@@ -16,7 +16,12 @@ bot.on("message", function(msg) {
 
 	if(msg.author.tag == bot.user.tag) return;
 
-	msg.mentions.users.each((mention) => {
+	if(msg.channel.type == "dm") {
+		msg.channel.send("Error! This channel is not a server... ABORTING.");
+		return;
+	}
+
+	msg.mentions.users.each((mention, key) => {
 		if(mention.username == bot.user.username && mention.bot == true) {
 			args = msg.content.split(" ");
 		}
@@ -34,7 +39,7 @@ bot.on("message", function(msg) {
 				Command.get(cmd).execute(msg, args);
 			} catch (error) {
 				console.error("[ERR] " + error);
-				msg.channel.send('Krzzt! unknown command... PROCESS TERMINATED.');
+				msg.channel.send('Krzzt! Command failed... PROCESS TERMINATED.');
 			}
 		}
 	}
