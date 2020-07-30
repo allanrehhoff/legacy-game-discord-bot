@@ -1,1 +1,3 @@
-console.log("Hello world");
+const ENV = process.env;
+
+console.log(ENV.firstkey);
