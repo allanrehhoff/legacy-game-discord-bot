@@ -2,7 +2,7 @@
 
 You must be a discord server admin to attach this bot to your server.
 
-Visit the following link in your browser to authorize the bot.
+To add the bot to your server, ask for the oAuth authorization link.
 
 DISCLAIMER!
 Functionality or behaviour of this bot may change at a moments notice, with or without warning.
