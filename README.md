@@ -1,4 +1,4 @@
-#Legacy Game Raids Discord Bot#
+# Legacy Game Raids Discord Bot
 
 You must be a discord server admin to attach this bot to your server.
 
