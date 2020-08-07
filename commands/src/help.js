@@ -29,6 +29,16 @@ character
 
 	@mention character Lynx
 `,
+
+design: `
+design
+	Available subcommands: <player>
+
+	Displays a character design from any given player.
+
+	@mention design Lynx
+`,
+
 help: `
 help
 	Available subcommands: <command>
