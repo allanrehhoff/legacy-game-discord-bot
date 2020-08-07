@@ -24,23 +24,25 @@ module.exports = {
 		return roles[role].color || "BLUE";
 	},
 	execute: function(msg, args) {
-		if(this.roleIsAllowed(args[2]) == false) {
+		var requestedRole = args[2].toLowerCase().capitalize();
+
+		if(this.roleIsAllowed(requestedRole) == false) {
 			msg.channel.send("Krzzt! Invalid system request, role cannnot be assigned... PROCESS TERMINATED.");
 		} else {
-			var hasRole = msg.member.roles.cache.find((role) => role.name == args[2]);
+			var hasRole = msg.member.roles.cache.find((role) => role.name == requestedRole);
 
 			try {
 				if(hasRole !== undefined) {
 					msg.member.roles.remove(hasRole, "Role removed by bot");
 					msg.author.send("Ding Ding! Role removed... PROCESS COMPLETED");
 				} else {
-					var addRole = msg.guild.roles.cache.find((r) => args[2] == r.name);
+					var addRole = msg.guild.roles.cache.find((r) => requestedRole == r.name);
 
 					if(addRole === undefined) {
 						msg.guild.roles.create({
 							data: {
-								name: args[2],
-								color: this.getRoleColor(args[2]),
+								name: requestedRole,
+								color: this.getRoleColor(requestedRole),
 							}
 						})
 						.then(function(role) {
