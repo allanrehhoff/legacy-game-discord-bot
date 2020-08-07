@@ -1,7 +1,7 @@
 {
-  "name": "kermit-meme-bot",
-  "version": "1.0.0",
-  "description": "A Discord meme bot named Kermit",
+  "name": "X-1025 Legacy Game Discord Bot",
+  "version": "1.2.0",
+  "description": "A Discord bot for Legacy Game",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/allanrehhoff/atr-discord-bot.git"
+    "url": "git+https://github.com/allanrehhoff/atr-legacy-game-discord-bot.git"
   },
   "keywords": [
     "discord",
@@ -18,9 +18,9 @@
   "author": "Allan Rehhoff",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/allanrehhoff/atr-discord-bot/issues"
+    "url": "https://github.com/allanrehhoff/atr-legacy-game-discord-bot/issues"
   },
-  "homepage": "https://github.com/allanrehhoff/atr-discord-bot#readme",
+  "homepage": "https://github.com/allanrehhoff/atr-legacy-game-discord-bot#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "discord.js": "^12.2.0",
