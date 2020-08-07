@@ -32,7 +32,7 @@ bot.on("message", function(msg) {
 			msg.channel.send("Krzzt! Invalid system request, empty message... PROCESS TERMINATED.");
 		}
 
-		var cmd = args[1];
+		var cmd = args[1].toLowerCase();
 
 		if(Command.exists(cmd)) {
 			try {

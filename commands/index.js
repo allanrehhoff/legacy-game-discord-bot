@@ -2,6 +2,7 @@ module.exports = {
 	commands: {
 		role: require("./src/role.js"),
 		character: require("./src/character.js"),
+		design: require("./src/design.js"),
 		wiki: require("./src/wiki.js"),
 		help: require("./src/help.js")
 	},
