@@ -27,8 +27,18 @@ character
 
 	Displays a character card from any given player.
 
-	@mention role Lynx
-`
+	@mention character Lynx
+`,
+help: `
+help
+	Available subcommands: <command>
+
+	Display this help.
+
+	@mention character role
+	@mention character wiki
+	...
+`,
 	},
 	getHelp: function(cmd) {
 		if(typeof this.help[cmd] !== "undefined") {
