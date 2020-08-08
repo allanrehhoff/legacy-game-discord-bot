@@ -52,7 +52,7 @@ module.exports = {
 		}
 	},
 	execute: function(msg, args) {
-		var subcmd = args[2];
+		var subcmd = args[2].toLowerCase();
 
 		if(typeof this.subcommands[subcmd] !== "undefined") {
 			this.subcommands[subcmd](msg, args);
