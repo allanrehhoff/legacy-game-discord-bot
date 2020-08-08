@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+require("./utilities/prototype.js");
+
 const Discord = require("discord.js");
 const Command = require("./commands");
 
