@@ -1,9 +1,40 @@
+const www = require("follow-redirects").https;
+const cheerio = require("cheerio");
+
 module.exports = {
 	subcommands: {
-		quote: function(msg, args) {
-			const www = require('https');
-			const cheerio = require('cheerio');
+		random: function(msg, args) {
+			var wikiBase = "https://wiki.legacy-game.net";
+			var redirectingUrl = wikiBase + "/index.php?title=Special:RandomRedirect";
 
+			var tmpmsg = msg.channel.send("BEEP BEEP... Calculating randomness... PROCESS STARTED.");
+
+			www.get(redirectingUrl, function(response) {
+				var html = '';
+
+				response.on("data", (chunk) => { html += chunk; });
+
+				response.on("end", () => {
+					var $ = cheerio.load(html);
+
+					var resultUrl = $("span.redirectText a").attr("href");
+					var title = $("span.redirectText a").text();
+
+					msg.channel.send(`
+**${title}**
+${"-".repeat(title.length)}${"-".repeat(title.length / 2)}
+
+${wikiBase}${resultUrl}`);
+
+					tmpmsg.then(function(msg) {
+						msg.delete();
+					});
+				}).on("error", function(error) {
+					console.log("[ERR] " + error.message);
+				});;
+			});
+		},
+		quote: function(msg, args) {
 			const pages = [
 				"https://wiki.legacy-game.net/index.php?title=Legacy_Quotes/Karma",
 				"https://wiki.legacy-game.net/index.php?title=Legacy_Quotes/Staff_Quotes",
@@ -22,7 +53,7 @@ module.exports = {
 			var tmpmsg = msg.channel.send("BEEP BEEP... Fetching quote... PROCESS STARTED.");
 
 			// Get random page.
-			var page = pages[Math.floor(Math.random() * pages.length)];
+			var page = pages.random();
 
 			www.get(page, function(response) {
 				let html = '';
@@ -30,7 +61,7 @@ module.exports = {
 				response.on("data", (chunk) => { html += chunk; });
 
 				response.on("end", () => {
-					const $ = cheerio.load(html);
+					var $ = cheerio.load(html);
 
 					let quotes = [];
 					$("pre").each(function(i, el) {
@@ -38,7 +69,7 @@ module.exports = {
 						quotes.push(quote);
 					});
 
-					let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+					let randomQuote = quotes.random();
 
 					msg.channel.send("```" + randomQuote + "```");
 
