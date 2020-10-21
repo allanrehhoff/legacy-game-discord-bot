@@ -49,6 +49,10 @@ help
 	@mention character wiki
 	...
 `,
+wlmap: `
+wlmap
+	Display the current updated warfare map.
+`
 	},
 	getHelp: function(cmd) {
 		if(typeof this.help[cmd] !== "undefined") {

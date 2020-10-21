@@ -3,3 +3,4 @@ node_modules
 atr-discord-bot.sublime-project
 package-lock.json
 .env
+.tmp

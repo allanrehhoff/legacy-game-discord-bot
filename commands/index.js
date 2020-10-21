@@ -4,7 +4,8 @@ module.exports = {
 		character: require("./src/character.js"),
 		design: require("./src/design.js"),
 		wiki: require("./src/wiki.js"),
-		help: require("./src/help.js")
+		help: require("./src/help.js"),
+		wlmap: require("./src/wlmap.js")
 	},
 	exists: function(cmd) {
 		return typeof this.commands[cmd] != "undefined";
