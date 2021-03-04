@@ -62,7 +62,6 @@ help
 
 	@mention character role
 	@mention character wiki
-	...
 `
 	},
 	getHelp: function(cmd) {
