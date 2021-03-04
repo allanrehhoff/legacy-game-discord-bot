@@ -49,7 +49,7 @@ image
 	Display an image.
 
 	Extension is optional, only use if you're certain about the image extension.
-	Path to image should to the part proceeding images/ for in-game image urls.
+	Path to image should to the part proceeding img-bin/ for in-game image urls.
 
 	@mention image path/to/image(.ext)
 `,
