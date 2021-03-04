@@ -39,6 +39,21 @@ design
 	@mention design Lynx
 `,
 
+wlmap: `
+wlmap
+	Display the current updated warfare map.
+`,
+
+image: `
+image
+	Display an image.
+
+	Extension is optional, only use if you're certain about the image extension.
+	Path to image should to the part proceeding images/ for in-game image urls.
+
+	@mention image path/to/image(.ext)
+`,
+
 help: `
 help
 	Available subcommands: <command>
@@ -48,10 +63,6 @@ help
 	@mention character role
 	@mention character wiki
 	...
-`,
-wlmap: `
-wlmap
-	Display the current updated warfare map.
 `
 	},
 	getHelp: function(cmd) {
