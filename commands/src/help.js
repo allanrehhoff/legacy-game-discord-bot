@@ -42,6 +42,13 @@ design
 wlmap: `
 wlmap
 	Display the current updated warfare map.
+	Add additional arguments to find a map near a specified timeframe.
+
+	Text suffixing the wlmap command uses PHP's relative formats:
+	https://www.php.net/manual/en/datetime.formats.relative.php
+
+	@mention wlmap
+	@mention wlmap 2 days ago
 `,
 
 image: `
