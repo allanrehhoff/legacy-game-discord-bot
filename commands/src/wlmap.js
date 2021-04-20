@@ -1,3 +1,5 @@
+const https = require('https');
+
 module.exports = {
 	modules: {
 		fs: require("fs"),
@@ -12,7 +14,28 @@ module.exports = {
 		let v = Math.random().toString().substr(2);
 		return "https://www.legacy-game.net/maps/map1_gang.png?v=" + v;
 	},
-	getMap: async function() {
+	getMapFromApi: async function(timeframe) {
+		var apiUrl = process.env.API_URL;
+		var apiKey = process.env.API_KEY;
+
+		var url = apiUrl + '/?action=get-image' + '&timeframe=' + timeframe + '&apikey=' + apiKey;
+
+		const res = await new Promise(resolve => {
+			https.get(url, resolve);
+		});
+
+		let data = await new Promise((resolve, reject) => {
+		let data = '';
+			res.on('data', chunk => data += chunk);
+			res.on('error', err => reject(err));
+			res.on('end', () => resolve(data));
+		});
+
+		data = JSON.parse(data);
+
+		return data.message;
+	},
+	getMapFromGameServer: async function() {
 		var { createCanvas, loadImage } = require("canvas");
 		var canvas = createCanvas(496, 512);
 		var ctx = canvas.getContext('2d');
@@ -42,13 +65,20 @@ module.exports = {
 		return tmppath;
 	},
 	execute: function(msg, args) {
-		var wlimg = this.getMap().then((result) => {
-			msg.channel.send({
-				files: [result]
-			}).then(() => {
-				var removeDir = this.modules.path.dirname(result);
-				this.modules.fs.rmdirSync(removeDir, {recursive: true});
+		if(args.length > 2) {
+			var timeframe = args.slice(2).join(' ');
+			this.getMapFromApi(timeframe).then((result) => {
+				msg.channel.send(result);
 			});
-		});
+		} else {
+			this.getMapFromGameServer().then((result) => {
+				msg.channel.send({
+					files: [result]
+				}).then(() => {
+					var removeDir = this.modules.path.dirname(result);
+					this.modules.fs.rmdirSync(removeDir, {recursive: true});
+				});
+			});
+		}
 	}
 }
