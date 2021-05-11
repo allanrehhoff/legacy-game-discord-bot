@@ -11,7 +11,7 @@ bot.login(process.env.BOT_TOKEN);
 
 bot.on("ready" , function() {
 	console.log("[BOT] Logged in as: " + bot.user.tag);
-	bot.user.setActivity('Waiting for @mention help', { type: 'CUSTOM_STATUS' });
+	bot.user.setActivity('for @mention help', { type: 'WATCHING' });
 });
 
 bot.on("message", function(msg) {
