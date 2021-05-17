@@ -76,7 +76,7 @@ module.exports = {
 					files: [result]
 				}).then(() => {
 					var removeDir = this.modules.path.dirname(result);
-					this.modules.fs.rmdirSync(removeDir, {recursive: true});
+					this.modules.fs.rmSync(removeDir, {recursive: true});
 				});
 			});
 		}

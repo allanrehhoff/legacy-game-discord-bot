@@ -33,6 +33,7 @@ bot.on("message", function(msg) {
 	if(args.length > 0) {
 		if(typeof args[1] == "undefined") {
 			msg.channel.send("Krzzt! Invalid system request, empty message... PROCESS TERMINATED.");
+			return;
 		}
 
 		var cmd = args[1].toLowerCase();
