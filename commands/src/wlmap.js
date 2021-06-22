@@ -25,7 +25,7 @@ module.exports = {
 		});
 
 		let data = await new Promise((resolve, reject) => {
-		let data = '';
+			let data = '';
 			res.on('data', chunk => data += chunk);
 			res.on('error', err => reject(err));
 			res.on('end', () => resolve(data));

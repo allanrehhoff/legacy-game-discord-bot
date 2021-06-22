@@ -4,6 +4,7 @@ require("./utilities/prototype.js");
 
 const Discord = require("discord.js");
 const Command = require("./commands");
+const Functions = require("./utilities/functions.js");
 
 var bot = new Discord.Client;
 
@@ -29,6 +30,8 @@ bot.on("message", function(msg) {
 			args = msg.content.split(" ");
 		}
 	});
+
+	Functions.maybeInsultPosterInAppropriateChannels(msg, args);
 
 	if(args.length > 0) {
 		if(typeof args[1] == "undefined") {
