@@ -27,9 +27,7 @@ module.exports = {
 		return data.message;
 	},
 	execute: function(msg, args) {
-		let channels = process.env.NSFW_CHANNELS.split(',');
-
-		if(channels.indexOf(msg.channel.name) !== -1) {
+		if(msg.channel.nsfw === true) {
 			this.getInsultFromAPI(msg.author.username).then((insult) => {
 				msg.channel.send(insult);
 			})
