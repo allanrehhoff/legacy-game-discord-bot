@@ -26,9 +26,14 @@ module.exports = {
 
 		return data.message;
 	},
-	execute: function(msg, args) {
+	execute: async function(msg, args) {
 		if(msg.channel.nsfw === true) {
-			this.getInsultFromAPI(msg.author.username).then((insult) => {
+			console.log(msg.author);
+
+			let member = await msg.guild.member(msg.author);
+			let displayname = member ? member.nickname : msg.author.username;
+
+			this.getInsultFromAPI(displayname).then((insult) => {
 				msg.channel.send(insult);
 			})
 		}
