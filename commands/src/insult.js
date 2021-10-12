@@ -28,8 +28,6 @@ module.exports = {
 	},
 	execute: async function(msg, args) {
 		if(msg.channel.nsfw === true) {
-			console.log(msg.author);
-
 			let member = await msg.guild.member(msg.author);
 			let displayname = member.nickname ? member.nickname : msg.author.username;
 
