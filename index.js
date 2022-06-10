@@ -25,6 +25,11 @@ bot.on("message", function(msg) {
 		return;
 	}
 
+	if(msg.author.tag == "Salty#3668") {
+		msg.channel.send("Error! Players banned from Legacy are unable to authenticate to my systems... ABORTING.");
+		return;
+	}
+
 	msg.mentions.users.each((mention, key) => {
 		if(mention.username == bot.user.username && mention.bot == true) {
 			args = msg.content.split(" ");
