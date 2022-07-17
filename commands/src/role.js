@@ -12,6 +12,9 @@ module.exports = {
 			},
 			"Dev": {
 				"color": "#ffcc5c"
+			},
+			"Snowcones": {
+				"color": "#ffffff"
 			}
 		}
 	},
