@@ -15,6 +15,9 @@ module.exports = {
 			},
 			"Snowcones": {
 				"color": "#ffffff"
+			},
+			"Werewolves": {
+				"color": "#97ebea"
 			}
 		}
 	},
